@@ -3,6 +3,7 @@ import { Clock, Calendar, Trophy } from "lucide-react";
 
 const GameCard = ({ id, url, name, imgURL, stringSeed1, stringSeed2 }) => {
 
+  
 
 
 
