@@ -161,9 +161,8 @@ const GamePage = () => {
                     className="w-10 h-10 rounded-full bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center"
                     onClick={() => (window.location.href = `/`)}
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center">
-                      <div className="w-1 h-7 bg-red-700 rounded-full transform -rotate-45" />
-                      <div className="w-1 h-7 bg-red-700 rounded-full transform rotate-45" />
+                    <div className="w-10 h-10 rounded-full bg-[#463225] text-[#ff007A] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center">
+                      X
                     </div>
                   </button>
                 </div>
