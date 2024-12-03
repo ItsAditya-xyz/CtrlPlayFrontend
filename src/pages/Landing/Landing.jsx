@@ -22,7 +22,8 @@ function Landing() {
   const [currentBg, setCurrentBg] = useState(banner_image);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const [gameJson] = useState(() => [
+  const [gameJson] = useState(() =>
+     [
     {
       id: 1,
       url: "https://4-cards-new.vercel.app/",
@@ -107,27 +108,25 @@ function Landing() {
         
 
         <div className="relative h-full">
-          <nav className="px-8 py-4 bg-black/30 backdrop-blur-md flex justify-between items-center">
+          <nav className="px-8 py-4 bg-black/5  flex justify-between items-center">
             <div className="navbar-brand flex items-center">
               <img src={logo} alt="Logo" className="h-10 w-auto" />
               <p className="text-[#EAEAEA] text-2xl font-medium mt-2 -ml-1">trl Play</p>
             </div>
 
             <div className="flex items-center space-x-6">
-              <a href="#home" className="text-[#EAEAEA] text-sm font-medium hover:text-gray-300 transition-colors">
-                HOME
-              </a>
-              <a href="#games" className="text-[#EAEAEA] font-medium text-sm hover:text-gray-300 transition-colors">
-                GAMES
-              </a>
+             
+         
               {/* <a href="#leaderboards" className="text-[#EAEAEA] font-medium text-sm hover:text-gray-300 transition-colors">
                 LEADERBOARDS
               </a> */}
-              <div className="ml-4 cursor-pointer">
+              <div className="ml-4 flex space-x-3 text-[#EAEAEA] text-sm items-center">
+
+                GM, Aditya
                 <img
                   src="https://s3-alpha-sig.figma.com/img/5f9e/1146/fc68babcf0627ea90ca94da1b85a238c?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fapBvJQuxRh0s5p6IV903MnLm5qGEgc5cNmDeNmuyBC7gwT492QfJtBrbt8ce0rnJlPuHS84ceiFOziK3LvhoeusEvMozW3CuPRRBy8TbynS22l3EKIYnlap3d8zvnkTgHtX7AcJOQ1tQmv6Dj51G53~VSvRe6sE3HdGImooZf9xMAKUadIg7Usew7d-5qSCsDqD-T~btY~ZWAzMJ0dv9jQiXT95BFvePj1A9HDNXYORDfYGw3ldHQLCwuSG5FeSpVzUVejevdVLa~vIfGkqD3TnDtSmKe4VVFqBru~mpM2r1RKBMkOH0nTa7VXpmjf6e1e-f4FTeHfG9ySiwfLYBg__"
                   alt="Profile"
-                  className="h-10 w-10 rounded-full border-2 border-white"
+                  className="h-10 w-10 ml-3 rounded-full border-2 border-white"
                 />
               </div>
             </div>
@@ -145,23 +144,23 @@ function Landing() {
       <div className="w-full bg-[#15151a] py-6 px-4">
         <div className="flex justify-center">
           <div className="flex items-end">
-            <img src={logo} alt="Logo" className="h-36 w-auto" />
-            <p className="text-[#EAEAEA] text-6xl font-medium -ml-3">trl</p>
+            <img src={logo} alt="Logo" className="h-28 w-auto" />
+            <p className="text-[#EAEAEA] text-7xl font-medium -ml-3">trl</p>
           </div>
 
           <div className="flex items-end ml-6">
-            <img src={pPlay} alt="Play" className="h-28 w-auto ml-auto" />
-            <p className="text-[#EAEAEA] text-6xl font-medium -ml-3">lay</p>
+           
+            <p className="text-[#EAEAEA] text-7xl font-medium -ml-3">Play</p>
           </div>
         </div>
 
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-12">
           <p className="text-[#EAEAEA] text-2xl leading-9 tracking-widest"
           id="games"
           >
             Keep
             <span className="text-[#FFEA00] ml-2 mr-2">Ctrl</span>
-            and <span className="text-[#FF007A] ml-1">Play</span> the Game
+            and <span className="text-[#FF007A] ml-1">Play</span> the Games
           </p>
         </div>
 

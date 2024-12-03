@@ -1,43 +1,72 @@
 [
-    {
-      "id": 1,
-      "url": "https://4-cards-new.vercel.app/"
-    },
-    {
-      "id": 2,
-      "url": "https://itch.io/embed-upload/1880291?color=333333"
-   
-    },
-    {
-      "id": 3,
-      "url": "https://weave-word.vercel.app/"
-    },
-    {
-      "id": 4,
-      "url": "https://gem-hunter-ao.vercel.app/"
-    },
-    {
-      "id": 5,
-      "url": "https://bsehovac.github.io/the-cube/"
-    },
-    {
-      "id": 6,
-      "url": "https://bobrov.dev/pacman-pwa/"
-    },
-    {
-      "id": 7,
-      "url": "https://www.towergame.app/"
-    },
-    {
-      "id": 8,
-      "url": "https://snake-pwa.github.io/"
-    },
-    {
-      "id": 9,
-      "url": "https://tmaiadev-tictactoe.netlify.app/"
-    },
-    {
-      "id": 10,
-      "url": "https://progressivewebapproom.com/app.html?id=webflap"
-    }
-  ]
+  {
+    "id": 1,
+    "url": "https://4-cards-new.vercel.app/",
+    "name": "4 Cards",
+    "creator": "Aditya Chaudhary",
+    "ratings": 4.5
+  },
+  {
+    "id": 2,
+    "url": "https://itch.io/embed-upload/1880291?color=333333",
+    "name": "Itch",
+    "creator": "Aditya Chaudhary",
+    "ratings": 4.3
+  },
+  {
+    "id": 3,
+    "url": "https://weave-word.vercel.app/",
+    "name": "Weave Word",
+    "creator": "Vaishnavi",
+    "ratings": 4.5
+  },
+  {
+    "id": 4,
+    "url": "https://gem-hunter-ao.vercel.app/",
+    "name": "Gem Hunter",
+    "creator": "Aman",
+    "ratings": 3.4
+  },
+  {
+    "id": 5,
+    "url": "https://bsehovac.github.io/the-cube/",
+    "name": "Cube",
+    "creator": "Hovac",
+    "ratings": 4.7
+  },
+  {
+    "id": 6,
+    "url": "https://bobrov.dev/pacman-pwa/",
+    "name": "Pacman",
+    "creator": "Bob",
+    "ratings": 4.1
+  },
+  {
+    "id": 7,
+    "url": "https://www.towergame.app/",
+    "name": "Tower Game",
+    "creator": "Robin",
+    "ratings": 3.5
+  },
+  {
+    "id": 8,
+    "url": "https://snake-pwa.github.io/",
+    "name": "Snake",
+    "creator": "Alex",
+    "ratings": 4.0
+  },
+  {
+    "id": 9,
+    "url": "https://tmaiadev-tictactoe.netlify.app/",
+    "name": "Tic Tac Toe",
+    "creator": "Tmaia Dev",
+    "ratings": 4.8
+  },
+  {
+    "id": 10,
+    "url": "",
+    "name": "Dont' Know",
+    "creator": "Nil",
+    "ratings": 0
+  }
+]

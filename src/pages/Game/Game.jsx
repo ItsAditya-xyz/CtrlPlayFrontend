@@ -12,6 +12,28 @@ const GamePage = () => {
   const containerRef = useRef(null);
   const iframeRef = useRef(null);
   const game = games.find((g) => g.id === parseInt(id, 10));
+  const [hoveredStar, setHoveredStar] = useState(0);
+
+  const [rating, setRating] = useState(0);
+
+  const [comments] = useState([
+    {
+      id: 1,
+      username: "RetroGamer84",
+      avatar: "/api/placeholder/40/40",
+      comment: "This game brings back memories! Love the pixel art.",
+      likes: 24,
+      isLiked: false,
+    },
+    {
+      id: 2,
+      username: "PixelPro",
+      avatar: "/api/placeholder/40/40",
+      comment: "Awesome game mechanics! Would love to see more levels.",
+      likes: 16,
+      isLiked: false,
+    },
+  ]);
 
   useEffect(() => {
     const updateScale = () => {
@@ -93,17 +115,25 @@ const GamePage = () => {
                 <div className="absolute inset-2 rounded-2xl border-4 border-[#2a1f1a]" />
 
                 {!isPowered && (
-                   <div className="flex justify-center mt-64  items-center ">
-                   <div className="flex items-end">
-                     <img src={logo} alt="Logo" className="h-36 w-auto" />
-                     <p className="text-[#33241B] text-6xl font-bold -ml-3">trl</p>
-                   </div>
-         
-                   <div className="flex items-end ml-6">
-                     <img src={pPlay} alt="Play" className="h-28 w-auto ml-auto" />
-                     <p className="text-[#33241B] text-6xl font-bold -ml-3">lay</p>
-                   </div>
-                 </div>
+                  <div className="flex justify-center mt-64  items-center ">
+                    <div className="flex items-end">
+                      <img src={logo} alt="Logo" className="h-36 w-auto" />
+                      <p className="text-[#33241B] text-6xl font-bold -ml-3">
+                        trl
+                      </p>
+                    </div>
+
+                    <div className="flex items-end ml-6">
+                      <img
+                        src={pPlay}
+                        alt="Play"
+                        className="h-28 w-auto ml-auto"
+                      />
+                      <p className="text-[#33241B] text-6xl font-bold -ml-3">
+                        lay
+                      </p>
+                    </div>
+                  </div>
                 )}
 
                 {/* Screen Effects */}
@@ -112,7 +142,6 @@ const GamePage = () => {
                     !isPowered && "hidden"
                   }`}
                 >
-
                   {/* Scanlines */}
                   <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] animate-scan pointer-events-none" />
 
@@ -176,15 +205,16 @@ const GamePage = () => {
                 </div>
 
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <a className="px-4 py-1 bg-[#463225] rounded-sm text-[#967c6d] text-xs font-mono"
-                  href="/"
+                  <a
+                    className="px-4 py-1 bg-[#463225] rounded-sm text-[#967c6d] text-xs font-mono"
+                    href="/#games"
                   >
                     CTRL PLAY
                   </a>
                 </div>
                 {/* Channel Controls */}
                 <div className="flex gap-6">
-                  <button 
+                  <button
                     className="w-10 h-10 rounded-full text-[#967c6d] bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center"
                     onClick={handleFullscreen}
                   >
@@ -204,6 +234,118 @@ const GamePage = () => {
             </div>
           </div>
         </div>
+
+        <div className="max-w-4xl mx-auto mt-8 rounded-xl overflow-hidden ">
+      {/* Game Info Section */}
+      <div className="p-6 border-b border-gray-800">
+        <div className="flex justify-between items-start mb-6">
+          <div>
+            <h1 className="text-2xl font-bold text-[#EAEAEA] mb-2">
+              {game.name}
+            </h1>
+            <p className="text-gray-400 text-sm">
+              Created by <span className="text-cyan-400">{game.creator}</span>
+            </p>
+          </div>
+          
+          {/* Rating Section */}
+          <div className="flex flex-col items-end">
+            <div className="flex items-center gap-1 mb-2">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  className="focus:outline-none transform transition-all duration-300 hover:scale-110"
+                  onMouseEnter={() => setHoveredStar(star)}
+                  onMouseLeave={() => setHoveredStar(0)}
+                  onClick={() => setRating(star)}
+                >
+                  <svg
+                    className={`w-6 h-6 ${
+                      star <= (hoveredStar || rating)
+                        ? "text-cyan-400"
+                        : "text-gray-600"
+                    } transition-colors duration-300`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-gray-400">Rating: {game.ratings}/5</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6">
+          <textarea
+            className="w-full p-4 bg-[#24242f] text-[#EAEAEA] rounded-xl border border-gray-700 focus:outline-none focus:border-[#FF007A] focus:ring-1 focus:ring-[#FF007A] placeholder-gray-500 transition-all duration-300"
+            placeholder="Write a comment..."
+            rows="3"
+          />
+          <div className="flex justify-end mt-2">
+            <button className="bg-cyan-500 text-[#EAEAEA] px-4 py-2 text-sm rounded-full transform transition-all duration-300 hover:bg-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 active:scale-95">
+              Post Comment
+            </button>
+          </div>
+        </div>
+      {/* Comments Section */}
+      <div className=" p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-[#EAEAEA]">Comments</h2>
+
+        </div>
+
+        {/* Comments List */}
+        <div className="space-y-4">
+          {comments.map((comment) => (
+            <div
+              key={comment.id}
+              className="bg-[#24242f] p-4 rounded-xl transform transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
+            >
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center">
+                  <img
+                    src={comment.avatar}
+                    alt={comment.username}
+                    className="w-10 h-10 rounded-full border-2 border-cyan-500/20"
+                  />
+                  <div className="ml-3">
+                    <span className=" text-[#EAEAEA] text-base">
+                      {comment.username}
+                    </span>
+                    <p className="text-gray-500 text-xs">{comment.timeAgo}</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-3 text-sm  font-extralight">{comment.comment}</p>
+              <div className="flex items-center text-sm text-gray-400">
+                <button className="flex items-center space-x-1 group">
+                  <svg
+                    className="w-5 h-5 transition-colors duration-300 group-hover:text-cyan-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="transition-colors duration-300 group-hover:text-cyan-400">
+                    {comment.likes} likes
+                  </span>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add Comment Box */}
+      
+      </div>
+    </div>
       </div>
     </div>
   );
