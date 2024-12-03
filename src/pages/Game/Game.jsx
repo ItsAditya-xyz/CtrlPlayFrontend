@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Power, Volume2, Settings } from "lucide-react";
 import games from "./games.json";
+import logo from "../../assets/logo.png";
+import pPlay from "../../assets/PlayP.png";
 
 const GamePage = () => {
   const { id } = useParams();
@@ -42,6 +44,20 @@ const GamePage = () => {
     };
   }, []);
 
+  const handleFullscreen = () => {
+    if (iframeRef.current) {
+      if (iframeRef.current.requestFullscreen) {
+        iframeRef.current.requestFullscreen();
+      } else if (iframeRef.current.webkitRequestFullscreen) {
+        iframeRef.current.webkitRequestFullscreen();
+      } else if (iframeRef.current.mozRequestFullScreen) {
+        iframeRef.current.mozRequestFullScreen();
+      } else if (iframeRef.current.msRequestFullscreen) {
+        iframeRef.current.msRequestFullscreen();
+      }
+    }
+  };
+
   if (!game) {
     return (
       <div className="p-4">
@@ -76,20 +92,32 @@ const GamePage = () => {
                 {/* Inner Screen Frame */}
                 <div className="absolute inset-2 rounded-2xl border-4 border-[#2a1f1a]" />
 
+                {!isPowered && (
+                   <div className="flex justify-center mt-64  items-center ">
+                   <div className="flex items-end">
+                     <img src={logo} alt="Logo" className="h-36 w-auto" />
+                     <p className="text-[#33241B] text-6xl font-bold -ml-3">trl</p>
+                   </div>
+         
+                   <div className="flex items-end ml-6">
+                     <img src={pPlay} alt="Play" className="h-28 w-auto ml-auto" />
+                     <p className="text-[#33241B] text-6xl font-bold -ml-3">lay</p>
+                   </div>
+                 </div>
+                )}
+
                 {/* Screen Effects */}
                 <div
                   className={`absolute inset-4 rounded-xl overflow-hidden ${
                     !isPowered && "hidden"
                   }`}
                 >
+
                   {/* Scanlines */}
                   <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] animate-scan pointer-events-none" />
 
                   {/* CRT Curve Effect */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.5)_100%)] pointer-events-none" />
-
-                  {/* Screen Glow */}
-                  {/* <div className="absolute inset-0 bg-[#a98]/5 animate-glow pointer-events-none" /> */}
                 </div>
 
                 {/* Game Content */}
@@ -99,7 +127,7 @@ const GamePage = () => {
                     isPowered ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <div className="absolute  inset-4 flex items-center justify-center bg-black rounded-lg">
+                  <div className="absolute inset-4 flex items-center justify-center bg-black rounded-lg">
                     <iframe
                       ref={iframeRef}
                       src={game.url}
@@ -110,6 +138,7 @@ const GamePage = () => {
                         height: `${game.height || "100%"}`,
                         overflow: "hidden",
                       }}
+                      allowFullScreen
                     />
                   </div>
                 </div>
@@ -147,15 +176,20 @@ const GamePage = () => {
                 </div>
 
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <div className="px-4 py-1 bg-[#463225] rounded-sm text-[#967c6d] text-xs font-mono">
+                  <a className="px-4 py-1 bg-[#463225] rounded-sm text-[#967c6d] text-xs font-mono"
+                  href="/"
+                  >
                     CTRL PLAY
-                  </div>
+                  </a>
                 </div>
                 {/* Channel Controls */}
                 <div className="flex gap-6">
-                  <div className="w-10 h-10 rounded-full bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center">
-                    <div className="w-5 h-5 rounded-full bg-[#967c6d] shadow-inner" />
-                  </div>
+                  <button 
+                    className="w-10 h-10 rounded-full text-[#967c6d] bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center"
+                    onClick={handleFullscreen}
+                  >
+                    {`[ ]`}
+                  </button>
 
                   <button
                     className="w-10 h-10 rounded-full bg-[#463225] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center"
@@ -168,20 +202,8 @@ const GamePage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Brand Label */}
           </div>
-
-          {/* TV Stand */}
-          {/* <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-1/2">
-            <div className="h-16 bg-gradient-to-b from-[#846b5c] to-[#463225] rounded-t-3xl shadow-lg">
-
-             
-            </div>
-          </div> */}
         </div>
-
-        {/* Game Title */}
       </div>
     </div>
   );
@@ -189,7 +211,6 @@ const GamePage = () => {
 
 export default GamePage;
 
-// Add these custom animations to your global CSS or Tailwind config
 const style = document.createElement("style");
 style.textContent = `
   @keyframes appear {
