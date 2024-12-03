@@ -33,6 +33,8 @@ function Landing() {
       id: 2,
       url: "hhttps://itch.io/embed-upload/1880291?color=333333",
       name: "Just Slide",
+      width: "720px",
+      height: "680px",
       imageURL: "https://cdn.discordapp.com/attachments/1019657011488628847/1313512365228294194/image.png?ex=67506737&is=674f15b7&hm=23f8eedf03837f9a1f75d88bfcb7dfa02dc9c99ee68edb421b888ca768dbeb9a&",
     },
     {
@@ -79,7 +81,7 @@ function Landing() {
       setTimeout(() => {
         setCurrentBg((prev) => prev === banner_image ? banner_image2 : banner_image);
         setIsTransitioning(false);
-      }, 500);
+      }, 600);
     }, 300);
   
     return () => clearInterval(interval);
@@ -106,8 +108,9 @@ function Landing() {
 
         <div className="relative h-full">
           <nav className="px-8 py-4 bg-black/30 backdrop-blur-md flex justify-between items-center">
-            <div className="navbar-brand">
+            <div className="navbar-brand flex items-center">
               <img src={logo} alt="Logo" className="h-10 w-auto" />
+              <p className="text-[#EAEAEA] text-2xl font-medium mt-2 -ml-1">trl Play</p>
             </div>
 
             <div className="flex items-center space-x-6">
@@ -117,9 +120,9 @@ function Landing() {
               <a href="#games" className="text-[#EAEAEA] font-medium text-sm hover:text-gray-300 transition-colors">
                 GAMES
               </a>
-              <a href="#leaderboards" className="text-[#EAEAEA] font-medium text-sm hover:text-gray-300 transition-colors">
+              {/* <a href="#leaderboards" className="text-[#EAEAEA] font-medium text-sm hover:text-gray-300 transition-colors">
                 LEADERBOARDS
-              </a>
+              </a> */}
               <div className="ml-4 cursor-pointer">
                 <img
                   src="https://s3-alpha-sig.figma.com/img/5f9e/1146/fc68babcf0627ea90ca94da1b85a238c?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fapBvJQuxRh0s5p6IV903MnLm5qGEgc5cNmDeNmuyBC7gwT492QfJtBrbt8ce0rnJlPuHS84ceiFOziK3LvhoeusEvMozW3CuPRRBy8TbynS22l3EKIYnlap3d8zvnkTgHtX7AcJOQ1tQmv6Dj51G53~VSvRe6sE3HdGImooZf9xMAKUadIg7Usew7d-5qSCsDqD-T~btY~ZWAzMJ0dv9jQiXT95BFvePj1A9HDNXYORDfYGw3ldHQLCwuSG5FeSpVzUVejevdVLa~vIfGkqD3TnDtSmKe4VVFqBru~mpM2r1RKBMkOH0nTa7VXpmjf6e1e-f4FTeHfG9ySiwfLYBg__"
