@@ -55,6 +55,9 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
       }
 
       const loadingToast = toast.loading("Creating profile...");
+
+      const wallet = localStorage.getItem("wallet");
+      window.arweaveWallet = JSON.parse(wallet);
       const profile = await createPulseProfile(
         name,
         name,
@@ -67,6 +70,7 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
 
       toast.dismiss(loadingToast);
       if(profile.status === "error") {
+        
         toast.error("Error creating profile. ");
         return;
       }
@@ -91,7 +95,7 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
           <X size={24} />
         </button>
 
-        <form  className="space-y-6">
+        <div  className="space-y-6">
           <div className="text-center">
             <h2 className="text-4xl mt-8 font-bold text-[#EAEAEA] mb-2">
               Create Your Profile!
@@ -143,7 +147,7 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
               Create Profile
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
