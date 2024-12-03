@@ -5,6 +5,8 @@ import games from "./games.json";
 import logo from "../../assets/logo.png";
 import pPlay from "../../assets/PlayP.png";
 import ProfileModal from "../../Components/ProfileModal";
+
+import { getPulseProfile } from "../../utils/function";
 const GamePage = () => {
   const { id } = useParams();
   const [isPowered, setIsPowered] = useState(true);
@@ -16,10 +18,15 @@ const GamePage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [userInfo, setUserInfo] = useState(null);
+
   const handleProfileSubmit = (profileData) => {
     console.log(profileData); // { name: string, avatarId: number }
     setIsModalOpen(false);
   };
+
+
+  
 
   const [rating, setRating] = useState(0);
 
@@ -86,6 +93,30 @@ const GamePage = () => {
       }
     }
   };
+
+  async function initializePulseProfile() {
+    const wallet = JSON.parse(localStorage.getItem("wallet"));
+    window.arweaveWallet = wallet;
+
+    const address = localStorage.getItem("address");
+
+    const response = await getPulseProfile(address);
+
+    console.log(response);
+
+    if (response.status === "error") {
+      console.log("Error fetching profile");
+      return;
+    }
+
+    setUserInfo(response.data);
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("wallet")) {
+      initializePulseProfile();
+    }
+  }, []);
 
   if (!game) {
     return (
@@ -262,10 +293,16 @@ const GamePage = () => {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
                       key={star}
+                      
                       className="focus:outline-none transform transition-all duration-300 hover:scale-110"
                       onMouseEnter={() => setHoveredStar(star)}
                       onMouseLeave={() => setHoveredStar(0)}
-                      onClick={() => setRating(star)}
+                      onClick={() => {
+                        if (!userInfo) {
+                          setIsModalOpen(true);
+                        }
+                        setRating(star);
+                      }}
                     >
                       <svg
                         className={`w-6 h-6 ${
@@ -290,6 +327,13 @@ const GamePage = () => {
 
           <div className="mt-6">
             <textarea
+
+              onFocus={()=>{
+                if(!userInfo){
+                  setIsModalOpen(true);
+                }
+              }}
+                  
               className="w-full p-4 text-sm bg-[#24242f] text-[#EAEAEA] rounded-xl border border-gray-700 focus:outline-none focus:border-[#FF007A] focus:ring-1 focus:ring-[#FF007A] placeholder-gray-500 transition-all duration-300"
               placeholder="Write a comment..."
               rows="3"

@@ -2,12 +2,6 @@ import React from "react";
 import { Clock, Calendar, Trophy } from "lucide-react";
 
 const GameCard = ({ id, url, name, imgURL, stringSeed1, stringSeed2 }) => {
-
-  
-
-
-
- 
   return (
     <div className="max-w-sm bg-[#24242f] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
       {/* Header section with burst effect and title */}
