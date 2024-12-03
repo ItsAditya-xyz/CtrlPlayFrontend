@@ -5,3 +5,7 @@
 body {
     font-family: 'Orbitron';font-size: 22px;
 }
+
+html {
+    scroll-behavior: smooth;
+  }
