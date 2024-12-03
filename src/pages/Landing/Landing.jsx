@@ -3,10 +3,56 @@ import banner_image from "../../assets/banner_image.png";
 import banner_image2 from "../../assets/banner_image2.png";
 import logo from "../../assets/logo.png";
 import pPlay from "../../assets/PlayP.png";
+import GameCard from "../../Components/GameCard";
 
 function Landing() {
   const [currentBg, setCurrentBg] = useState(banner_image);
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const gamesJson = [
+    {
+      "id": 1,
+      "url": "https://4-cards-new.vercel.app/",
+      "imageURL": "https://s3-alpha-sig.figma.com/img/e08e/1367/74c8b2102b00663c1f4fd67e90ec1804?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=b-Op49WX4lIa14vpce6qlHGD-tNTCL9KmBEvNkSUoasR5ukkV25HeOTGRCfMXaHJjL0MnR8boJYz4poMAjclzgLTl7wKt-GY2ftrgvhmCr2~WUsrICXqX0b3iStA1AzVlHVwvP9JzuLFanIJqpN30F8dGmgD~c1MoJMrXS9sWuucXtBKlh8xfLSm9a0Ib331hhanthx5xTgt330oCx0sr11ejRzPqscuHojYGYln2W~Pv1iP6SdX1NAPmSuWE7eoDE9nrYc64OMrzDhlQvHIAv6KrrwFiHcbmWFARR5QTab72mmiz1glCAjiPkRUWlRcSPcPgRkmKFBq3DIjtGJYaA__"
+    },
+    {
+      "id": 2,
+      "url": "hhttps://itch.io/embed-upload/1880291?color=333333",
+      "imageURL": "https://cdn.discordapp.com/attachments/1019657011488628847/1313512365228294194/image.png?ex=67506737&is=674f15b7&hm=23f8eedf03837f9a1f75d88bfcb7dfa02dc9c99ee68edb421b888ca768dbeb9a&"
+    },
+    {
+      "id": 3,
+      "url": "https://weave-word.vercel.app/"
+    },
+    {
+      "id": 4,
+      "url": "https://gem-hunter-ao.vercel.app/"
+    },
+    {
+      "id": 5,
+      "url": "https://bsehovac.github.io/the-cube/"
+    },
+    {
+      "id": 6,
+      "url": "https://bobrov.dev/pacman-pwa/"
+    },
+    {
+      "id": 7,
+      "url": "https://www.towergame.app/"
+    },
+    {
+      "id": 8,
+      "url": "https://snake-pwa.github.io/"
+    },
+    {
+      "id": 9,
+      "url": "https://tmaiadev-tictactoe.netlify.app/"
+    },
+    {
+      "id": 10,
+      "url": "https://progressivewebapproom.com/app.html?id=webflap"
+    }
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,7 +73,7 @@ function Landing() {
       {/* Extended text bar that goes beyond the background */}
 
       {/* Main content area with background */}
-      <div className="relative w-screen h-screen overflow-hidden">
+      <div className="relative  h-screen overflow-hidden">
         <div
           className="absolute inset-0  bg-center bg-cover bg-no-repeat"
           style={{
@@ -99,23 +145,26 @@ function Landing() {
           </div>
         </div>
 
-          <div className="flex justify-center mt-5">
-
-     
-        <p className="text-white text-2xl leading-9 tracking-widest">
-          Keep
-          <span className="text-[#FFEA00] ml-2 mr-2">Ctrl</span>
-          and <span className="text-[#FF007A] ml-1">Play</span> the Game
-        </p>
+        <div className="flex justify-center mt-5">
+          <p className="text-white text-2xl leading-9 tracking-widest">
+            Keep
+            <span className="text-[#FFEA00] ml-2 mr-2">Ctrl</span>
+            and <span className="text-[#FF007A] ml-1">Play</span> the Game
+          </p>
         </div>
+
+        <div className="flex justify-center items-center bg-[#15151a] py-6 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl w-full">
+        {gamesJson.map((game) => (
+          <div
+            key={game.id}
+            className="w-full flex justify-center"
+          >
+            <GameCard id = {game.id} url={game.url} imgURL={game.imageURL} />
+          </div>
+        ))}
       </div>
-
-      <div
-      className="flex justify-center items-center bg-[#15151a] py-6 px-4"
-      >
-
-        
-
+    </div>
       </div>
     </>
   );
