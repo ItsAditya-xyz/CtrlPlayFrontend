@@ -1,10 +1,10 @@
 import Landing from "./pages/Landing/Landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "./pages/Profile/Profile";
 import Game from "./pages/Game/Game";
 import { useEffect } from "react";
 
 import Arweave from "arweave";
+import ProfilePage from "./pages/Profile/ProfilePage";
 function App() {
   async function initializeWallet() {
     let addressTemp = "";
@@ -44,8 +44,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/game/:id" element={<Game />} />
+
+        <Route path="/profile/:address" element={<ProfilePage/>} />
       </Routes>
     </Router>
   );

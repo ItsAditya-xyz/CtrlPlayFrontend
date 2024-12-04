@@ -29,28 +29,24 @@ const GameCard = ({ id, url, name, imgURL, stringSeed1, stringSeed2 }) => {
       </div>
 
       {/* Stats section with hover effects */}
-      <div className="px-6 py-4 transition-colors duration-300 hover:bg-[#2a2a36]">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="flex flex-col group">
-            <div className="flex items-center text-gray-500 text-xs mb-1 transition-colors duration-300 group-hover:text-cyan-400">
-              <Clock className="w-6 h-6 mr-1 transition-transform duration-300 group-hover:scale-110" />
-              PLAY TIME
+      <div className="px-4 py-4 transition-colors duration-300 hover:bg-[#2a2a36] ">
+        <div className="flex justify-between">
+          <div className="text-[#eaeaea]">{name}</div>
+
+          <div className="flex space-x-2">
+            <div className="flex flex-col group">
+              <div className="flex items-center text-gray-500 text-xs mb-1 transition-colors duration-300 group-hover:text-cyan-400">
+                <Clock className="w-4 h-4 mr-1 transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <span className="text-[#EAEAEA] text-xs">1 hour</span>
             </div>
-            <span className="text-[#EAEAEA] text-sm">356 hours</span>
-          </div>
-          <div className="flex flex-col group">
-            <div className="flex items-center text-gray-500 text-xs mb-1 transition-colors duration-300 group-hover:text-cyan-400">
-              <Calendar className="w-8 h-8 mr-1 text-xs transition-transform duration-300 group-hover:scale-110" />
-              LAST PLAYED
+
+            <div className="flex flex-col group">
+              <div className="flex items-center text-gray-500 text-sm mb-1 transition-colors duration-300 group-hover:text-cyan-400">
+                <Trophy className="w-4 h-4 mr-1 text-xs transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <span className="text-[#EAEAEA] text-xs">#3</span>
             </div>
-            <span className="text-[#EAEAEA] text-xs">2 hours ago</span>
-          </div>
-          <div className="flex flex-col group">
-            <div className="flex items-center text-gray-500 text-sm mb-1 transition-colors duration-300 group-hover:text-cyan-400">
-              <Trophy className="w-4 h-4 mr-1 text-xs transition-transform duration-300 group-hover:scale-110" />
-              RANK
-            </div>
-            <span className="text-[#EAEAEA] text-xs">#3</span>
           </div>
         </div>
       </div>
@@ -60,11 +56,11 @@ const GameCard = ({ id, url, name, imgURL, stringSeed1, stringSeed2 }) => {
         <div className="flex items-center group">
           <div className="flex -space-x-2 transition-transform duration-300 group-hover:scale-105">
             <img
-            className="rounded-full w-8 h-8"
+              className="rounded-full w-8 h-8"
               src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${stringSeed1}`}
             ></img>
             <img
-            className="rounded-full w-8 h-8"
+              className="rounded-full w-8 h-8"
               src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${stringSeed2}`}
             ></img>
           </div>

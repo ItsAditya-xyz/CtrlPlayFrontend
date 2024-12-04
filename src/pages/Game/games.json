@@ -7,66 +7,61 @@
     "ratings": 4.5
   },
   {
-    "id": 22,
+    "id": 3,
     "url": "https://itch.io/embed-upload/1880291?color=333333",
-    "name": "Itch",
+    "name": "Just Slide",
     "creator": "Aditya Chaudhary",
     "ratings": 4.3
   },
   {
-    "id": 3,
+    "id": 4,
     "url": "https://weave-word.vercel.app/",
     "name": "Weave Word",
     "creator": "Vaishnavi",
     "ratings": 4.5
   },
   {
-    "id": 4,
+     "id": 5,
+    "url": "https://chess_arlink.ar-io.dev/",
+    "name": "Chess",
+    "creator": "Sam",
+    "ratings": 3.4
+
+  },
+  {
+    "id": 5,
     "url": "https://gem-hunter-ao.vercel.app/",
     "name": "Gem Hunter",
     "creator": "Aman",
     "ratings": 3.4
   },
   {
-    "id": 5,
+    "id": 6,
     "url": "https://bsehovac.github.io/the-cube/",
     "name": "Cube",
     "creator": "Hovac",
     "ratings": 4.7
   },
   {
-    "id": 6,
+    "id": 7,
     "url": "https://bobrov.dev/pacman-pwa/",
     "name": "Pacman",
     "creator": "Bob",
     "ratings": 4.1
   },
   {
-    "id": 7,
+    "id": 8,
     "url": "https://www.towergame.app/",
     "name": "Tower Game",
     "creator": "Robin",
     "ratings": 3.5
   },
   {
-    "id": 8,
+    "id": 9,
     "url": "https://snake-pwa.github.io/",
     "name": "Snake",
     "creator": "Alex",
     "ratings": 4.0
-  },
-  {
-    "id": 9,
-    "url": "https://tmaiadev-tictactoe.netlify.app/",
-    "name": "Tic Tac Toe",
-    "creator": "Tmaia Dev",
-    "ratings": 4.8
-  },
-  {
-    "id": 10,
-    "url": "",
-    "name": "Dont' Know",
-    "creator": "Nil",
-    "ratings": 0
   }
+  
 ]
