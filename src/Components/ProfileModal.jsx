@@ -71,10 +71,20 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
       toast.dismiss(loadingToast);
       if(profile.status === "error") {
         
-        toast.error("Error creating profile. ");
+        toast.error(profile.message);
         return;
       }
       toast.success("Profile created successfully!");
+
+      //reload page 
+      window.location.reload();
+
+      
+
+
+       
+
+      
 
 
       onClose();
@@ -154,3 +164,5 @@ const ProfileModal = ({ isOpen, onClose, onSubmit }) => {
 };
 
 export default ProfileModal;
+
+

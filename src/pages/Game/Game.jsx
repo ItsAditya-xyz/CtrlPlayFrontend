@@ -5,8 +5,14 @@ import games from "./games.json";
 import logo from "../../assets/logo.png";
 import pPlay from "../../assets/PlayP.png";
 import ProfileModal from "../../Components/ProfileModal";
+import toast, { Toaster } from "react-hot-toast";
 
-import { getPulseProfile } from "../../utils/function";
+import {
+  createCommentOnID,
+  getCommentsForID,
+  getPulseProfile,
+  getUsersFromlistOfIDs,
+} from "../../utils/function";
 const GamePage = () => {
   const { id } = useParams();
   const [isPowered, setIsPowered] = useState(true);
@@ -18,36 +24,20 @@ const GamePage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [comment, setComment] = useState("");
+
   const [userInfo, setUserInfo] = useState(null);
+
+  const [commenterInfo, setCommenterInfo] = useState(null);
 
   const handleProfileSubmit = (profileData) => {
     console.log(profileData); // { name: string, avatarId: number }
     setIsModalOpen(false);
   };
 
-
-  
-
   const [rating, setRating] = useState(0);
 
-  const [comments] = useState([
-    {
-      id: 1,
-      username: "RetroGamer84",
-      avatar: "/api/placeholder/40/40",
-      comment: "This game brings back memories! Love the pixel art.",
-      likes: 24,
-      isLiked: false,
-    },
-    {
-      id: 2,
-      username: "PixelPro",
-      avatar: "/api/placeholder/40/40",
-      comment: "Awesome game mechanics! Would love to see more levels.",
-      likes: 16,
-      isLiked: false,
-    },
-  ]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     const updateScale = () => {
@@ -112,9 +102,70 @@ const GamePage = () => {
     setUserInfo(response.data);
   }
 
+  async function getComments() {
+    const commentVal = await getCommentsForID(id);
+    console.log(commentVal.data.comments);
+
+ 
+
+    //get list of commenter ids
+    const commenterIDs = commentVal.data.comments.map(
+      (comment) => `${comment.user_id}`
+    );
+    console.log(commenterIDs);
+
+    const commenterInfo = await getUsersFromlistOfIDs(commenterIDs);
+    
+    console.log(commenterInfo.data);
+    setCommenterInfo(commenterInfo.data);
+
+    setComments(commentVal.data.comments);
+
+    return;
+  }
+
+  async function handlePostComment() {
+    if (!userInfo) {
+      setIsModalOpen(true);
+      return;
+    }
+
+    //if no comments show error
+    if (!comment) {
+      toast.error("Please write a comment");
+      return;
+    }
+
+    //create comment process
+
+    const loadingToast = toast.loading("Posting comment...");
+
+    const wallet = localStorage.getItem("wallet");
+    window.arweaveWallet = JSON.parse(wallet);
+
+    const commentResponse = await createCommentOnID(
+      id,
+      comment,
+      window.arweaveWallet
+    );
+
+    console.log(commentResponse);
+
+    toast.dismiss(loadingToast);
+    if (commentResponse.status === "error") {
+      toast.error(commentResponse.message);
+      return;
+    } else {
+      toast.success("Comment posted successfully");
+      setComment("");
+      getComments();
+    }
+  }
+
   useEffect(() => {
     if (localStorage.getItem("wallet")) {
       initializePulseProfile();
+      getComments();
     }
   }, []);
 
@@ -128,6 +179,7 @@ const GamePage = () => {
 
   return (
     <div className="min-h-screen bg-[#15151a] ">
+      <Toaster />
       <div className="">
         {/* Retro TV Container */}
         <div className="relative flex-1 h-screen max-h-screen bg-[#15151a] ">
@@ -293,7 +345,6 @@ const GamePage = () => {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
                       key={star}
-                      
                       className="focus:outline-none transform transition-all duration-300 hover:scale-110"
                       onMouseEnter={() => setHoveredStar(star)}
                       onMouseLeave={() => setHoveredStar(0)}
@@ -327,16 +378,16 @@ const GamePage = () => {
 
           <div className="mt-6">
             <textarea
-
-              onFocus={()=>{
-                if(!userInfo){
+              onFocus={() => {
+                if (!userInfo) {
                   setIsModalOpen(true);
                 }
               }}
-                  
               className="w-full p-4 text-sm bg-[#24242f] text-[#EAEAEA] rounded-xl border border-gray-700 focus:outline-none focus:border-[#FF007A] focus:ring-1 focus:ring-[#FF007A] placeholder-gray-500 transition-all duration-300"
               placeholder="Write a comment..."
               rows="3"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
             />
             <ProfileModal
               isOpen={isModalOpen}
@@ -347,8 +398,7 @@ const GamePage = () => {
               <button
                 className="bg-cyan-500 text-[#EAEAEA] px-4 py-2 text-sm rounded-full transform transition-all duration-300 hover:bg-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 active:scale-95"
                 onClick={() => {
-                  // make modal open
-                  setIsModalOpen(true);
+                  handlePostComment();
                 }}
               >
                 Post Comment
@@ -365,28 +415,28 @@ const GamePage = () => {
             <div className="space-y-4 -z-20">
               {comments.map((comment) => (
                 <div
-                  key={comment.id}
+                  key={comment.comment_id}
                   className="bg-[#24242f] p-4 rounded-xl transform transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex items-center">
                       <img
-                        src={comment.avatar}
-                        alt={comment.username}
+                        src={commenterInfo[parseInt(comment.user_id)].profile_picture_url}
+                 
                         className="w-10 h-10 rounded-full border-2 border-cyan-500/20"
                       />
                       <div className="ml-3">
                         <span className=" text-[#EAEAEA] text-base">
-                          {comment.username}
+                        {commenterInfo[parseInt(comment.user_id)].username}
                         </span>
-                        <p className="text-gray-500 text-xs">
+                        {/* <p className="text-gray-500 text-xs">
                           {comment.timeAgo}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   </div>
                   <p className="text-gray-300 mb-3 text-sm  font-extralight">
-                    {comment.comment}
+                    {comment.content}
                   </p>
                   <div className="flex items-center text-sm text-gray-400">
                     <button className="flex items-center space-x-1 group">
