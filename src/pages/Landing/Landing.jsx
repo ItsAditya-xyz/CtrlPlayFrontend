@@ -164,7 +164,7 @@ function Landing() {
 
               {userInfo && (
                 <a className="ml-4 flex space-x-3 text-[#EAEAEA] text-sm items-center"
-                href = {`/profile/${userInfo.address}`}
+              
                 >
                   GM, {userInfo.username}
                   <img
