@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white overflow-hidden max-h-80">
+    <footer className="relative bg-[#15151a] text-white overflow-hidden max-h-80">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(circle_at_center,_black,transparent_75%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#3b82f620_0%,transparent_50%)]" />
@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="relative mt-16 pt-8">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
-          <p className="text-center text-blue-200/60">
+          <p className="text-center text-[#4cb2d9]">
             &copy; {new Date().getFullYear()} Ctrl-Play. All rights reserved.
           </p>
         </div>
