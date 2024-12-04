@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 import pPlay from "../../assets/PlayP.png";
 import GameCard from "../../Components/GameCard";
 import { getPulseProfile } from "../../utils/function";
+import Footer from "./Footer";
 
 const generateRandomString = (length) => {
   const chars =
@@ -222,6 +223,7 @@ function Landing() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
