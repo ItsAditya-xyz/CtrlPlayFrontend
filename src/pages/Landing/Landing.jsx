@@ -93,6 +93,12 @@ function Landing() {
         name: "Fruit Reset",
         imageURL: "https://images.deso.org/70c1731773928fabee8d7350b7c0d979efd5a823a615c6334e682411c8ef62b9.webp",
 
+      },
+      {
+        id: 11,
+        url: "https://game323505.konggames.com/gamez/0032/3505/live/index.html",
+        name: "Just Slide Remastered",
+        imageURL: "https://images.deso.org/3f8a6b7e6f4557d5391942875167a3204274ba9c6e1ffdddffb7e541bb9e45ec.webp"
       }
     ].map(generateSeeds)
   );
