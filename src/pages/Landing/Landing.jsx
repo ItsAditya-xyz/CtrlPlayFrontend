@@ -88,14 +88,14 @@ function Landing() {
           "https://images.deso.org/d7b067b572358f18e2cb3c59c9c0152d8bfaa74933512cb1f364ed5184371f64.webp",
       },
       {
-        id: 10,
+        id: 11,
         url: "https://game318298.konggames.com/gamez/0031/8298/live/index.html?kongregate_game_version=1586601715&kongregate_host=www.congregate.com",
         name: "Fruit Reset",
         imageURL: "https://images.deso.org/70c1731773928fabee8d7350b7c0d979efd5a823a615c6334e682411c8ef62b9.webp",
 
       },
       {
-        id: 11,
+        id: 10,
         url: "https://game323505.konggames.com/gamez/0032/3505/live/index.html",
         name: "Just Slide Remastered",
         imageURL: "https://images.deso.org/3f8a6b7e6f4557d5391942875167a3204274ba9c6e1ffdddffb7e541bb9e45ec.webp"
