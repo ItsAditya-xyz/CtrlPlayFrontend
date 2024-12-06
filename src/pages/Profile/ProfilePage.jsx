@@ -4,14 +4,18 @@ import logo from "../../assets/logo.png";
 import { useParams } from "react-router-dom";
 import { getPulseProfile } from "../../utils/function";
 import GameCard from "../../Components/GameCard";
+
+import miniPC from "../../assets/miniPC.png";
+import mediumConsole from "../../assets/mediumConsole.png";
+import bigConsole from "../../assets/bigConsole.png";
 export default function ProfilePage() {
   const [userInfo, setUserInfo] = React.useState(null);
   const { address } = useParams();
 
   const badges = [
-    { id: 1, achieved: true, url : "https://cdn.discordapp.com/attachments/906173504225951776/1313795537555816478/miss_nancy_Give_me_one_retro_type_badge_for_game_sticker_style__3e28eb00-508e-4246-8f80-f0f40dd772a4.png?ex=67516ef1&is=67501d71&hm=8ff192b311f9bd613efcbb36f9798891b6aac3d85f66dd308142fde7df42c58d&" },
-    { id: 2, achieved: false, url: "https://cdn.discordapp.com/attachments/906173504225951776/1313795536763093063/miss_nancy_Give_me_one_retro_type_badge_of_game_console_looking_2e174dff-bec1-4dcd-a21f-e79b207b281a.png?ex=67516ef1&is=67501d71&hm=b01da6b2f8aeae92853d4d5544dcd4a453e2b4eb863ba6bf7f7621e6fe0f4882&" },
-    { id: 3, achieved: false , url: "https://cdn.discordapp.com/attachments/906173504225951776/1313795537178333295/miss_nancy_Give_me_one_retro_type_badge_for_game_sticker_style__79c051a2-f142-4068-8fa3-3e4e02578f6f.png?ex=67516ef1&is=67501d71&hm=286f5aafa2aeae0a3ea27a535ec16a6f10d6d5322913362c15c57e709073d50f&"},
+    { id: 1, achieved: true, url : miniPC},
+    { id: 2, achieved: false, url: mediumConsole },
+    { id: 3, achieved: false , url:bigConsole},
   ];
 
   const recentGames = [
