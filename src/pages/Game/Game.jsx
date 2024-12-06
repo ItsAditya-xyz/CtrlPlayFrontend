@@ -422,6 +422,11 @@ const GamePage = () => {
                     <div className="flex items-center">
                       <img
                         src={commenterInfo[parseInt(comment.user_id)].profile_picture_url}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://diamondapp.com/assets/img/default-profile-pic.png";
+                        }
+                        }
                  
                         className="w-10 h-10 rounded-full border-2 border-cyan-500/20"
                       />
