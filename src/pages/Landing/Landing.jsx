@@ -43,49 +43,49 @@ function Landing() {
         width: "720px",
         height: "680px",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1019657011488628847/1313512365228294194/image.png?ex=67506737&is=674f15b7&hm=23f8eedf03837f9a1f75d88bfcb7dfa02dc9c99ee68edb421b888ca768dbeb9a&",
+          "https://images.deso.org/4503d3a10e2827f6b2d78e8b4568120445fbae36917ab31d1a86225e20504029.webp",
       },
       {
         id: 4,
         url: "https://weave-word.vercel.app/",
         name: "Weave Word",
         imageURL:
-          "https://cdn.discordapp.com/attachments/906173504225951776/1313528673780895814/image.png?ex=67507668&is=674f24e8&hm=5c554b7099fea0c270d1918896b3718ce57c7cf2515e33861cfcdf1bbf74aba2&",
+          "https://images.deso.org/55d6ac4f5171f65fa692fee56865e0a35365d86ca55ea62869152315c6dec6c4.webp",
       },
       {
         id: 5,
         url: "https://chess_arlink.ar-io.dev/",
         name: "Chess",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1305544713733935206/1313529246471290942/image.png?ex=675076f0&is=674f2570&hm=4fe6ab5ede08ed3ae22a860b2996add292bc365afa48d64ee720ad9f4669351b&",
+          "https://images.deso.org/7c25f0f38bf9b5bd03e931932693e4e9dec3f47803187deb995614e14ea59919.webp",
       },
       {
         id: 6,
         url: "https://bsehovac.github.io/the-cube/",
         name: "The Cube",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1305544713733935206/1313529474146631690/image.png?ex=67507726&is=674f25a6&hm=aaabd2512c313142a9aef5af065d834ead4faabd14e3493a90a90aa4259b0aba&",
+          "https://images.deso.org/d5fe838984221dc1b6c386c20f3ca089c4ab28b965e83e4669645459d2c70685.webp",
       },
       {
         id: 7,
         url: "https://bobrov.dev/pacman-pwa/",
         name: "Pacman",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1305544713733935206/1313529686449721486/image.png?ex=67507759&is=674f25d9&hm=eb909bf3a6d5ca1ad3c9f0b19a4303b62fcf5ffa31786074547f358289fb40fe&",
+          "https://images.deso.org/4f02c9225b8956f37cae50f1012734e72a70dd55e0f40d2b8a94cabe031b6f93.webp",
       },
       {
         id: 8,
         url: "https://www.towergame.app/",
         name: "Tower Game",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1305544713733935206/1313530162515804181/image.png?ex=675077ca&is=674f264a&hm=79acfc364f827abcbfd7903fa201871ba92d0b44bd3bf93c96d688334aabbb0e&",
+          "https://images.deso.org/7d0ff79a7a6a9537d625beab63ebbe53d44a4a89bdb08264e8ba277310f0c25e.webp",
       },
       {
         id:9,
         url: "https://snake-pwa.github.io/",
         name: "Snake",
         imageURL:
-          "https://cdn.discordapp.com/attachments/1305544713733935206/1313530527080513537/image.png?ex=67507821&is=674f26a1&hm=250eb7bb73798a4be608a6636112197dc99f44384ef6445f638fd16eaab2ba7e&",
+          "https://images.deso.org/d7b067b572358f18e2cb3c59c9c0152d8bfaa74933512cb1f364ed5184371f64.webp",
       },
     ].map(generateSeeds)
   );

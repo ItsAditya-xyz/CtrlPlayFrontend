@@ -11,22 +11,22 @@ import { createPulseProfile } from "../utils/function";
 const avatars = [
   {
     id: 1,
-    src: "https://cdn.discordapp.com/attachments/906173504225951776/1313632280023011358/IMG_4882.png?ex=6750d6e5&is=674f8565&hm=b68f42ac575e3f37dc84967fc3d77a8fad66b533b323cf5cf88d6d8515733f81&",
+    src: "https://images.deso.org/20ad62a18c9d987f57cb344161431259d8ae4559d4bb007f65229f9fc8832da1.webp",
     alt: "Female avatar with blue hair and glasses",
   },
   {
     id: 2,
-    src: "https://cdn.discordapp.com/attachments/906173504225951776/1313632068520902686/IMG_4877.png?ex=6750d6b3&is=674f8533&hm=ff3594b706c3778a3916e9c5f1b06fd1316e59839df45f6a21ab2b2b7e305d26&",
+    src: "https://images.deso.org/084060aeb1e2f0dcd0ca9590bb5b2d9ae0d3a71cd28b657795e561a89be665eb.webp",
     alt: "Male avatar with beard and cap",
   },
   {
     id: 3,
-    src: "https://cdn.discordapp.com/attachments/906173504225951776/1313632519773753478/IMG_4884.png?ex=6750d71e&is=674f859e&hm=679d5c58aa6866ac094c52680a921290b05f4010b4b112fc2d8b432f607ff25a&",
+    src: "https://images.deso.org/303ee8557da3db7a04a8225c7339a11ba2f2c756b64d689b0e0fec7491756210.webp",
     alt: "Male avatar with headphones",
   },
   {
     id: 4,
-    src: "https://cdn.discordapp.com/attachments/906173504225951776/1313632731435110420/IMG_4883.png?ex=6750d751&is=674f85d1&hm=4808169eca22d82f0f5d3329f644fdaee41227e8034dd8aaaab8d7b11b483181&",
+    src: "https://images.deso.org/21157611c96fe835f4376f9652402e6dd5e857bc7e3059fea45d21c1c6f93f4a.webp",
     alt: "Male avatar with sunglasses and hat",
   },
 ];

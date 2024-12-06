@@ -33,7 +33,7 @@ export default function ProfilePage() {
       url: "https://www.towergame.app/",
       name: "Tower Game",
       imageURL:
-        "https://cdn.discordapp.com/attachments/1305544713733935206/1313530162515804181/image.png?ex=675077ca&is=674f264a&hm=79acfc364f827abcbfd7903fa201871ba92d0b44bd3bf93c96d688334aabbb0e&",
+        "https://images.deso.org/7d0ff79a7a6a9537d625beab63ebbe53d44a4a89bdb08264e8ba277310f0c25e.webp",
     },
   ]);
 
